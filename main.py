@@ -1,3 +1,22 @@
+from flask import Flask
+from threading import Thread
+
+app = Flask('')
+
+@app.route('/')
+def main():
+    return 'Server Running Because of Andika'
+
+def run():
+    app.run(host="0.0.0.0", port=8080)
+
+def keep_alive():
+    server = Thread(target=run)
+    server.start()
+
+keep_alive()
+print("Server Running Because of Andika")
+
 import asyncio
 import os
 import io
